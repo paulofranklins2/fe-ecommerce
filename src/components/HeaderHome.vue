@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <router-link class="navbar-brand" :to="{ name: 'home' }">
-<!--        <img src="../assets/beth.png" height="40px" />-->
+        <!--        <img src="../assets/beth.png" height="40px" />-->
       </router-link>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -12,11 +12,21 @@
               <a class="nav-link" aria-current="page" href="#">Categories</a>
             </router-link>
           </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'ListProduct' }">
+              <a class="nav-link" aria-current="page" href="#">Products</a>
+            </router-link>
+          </li>
         </ul>
 
         <div>
           <router-link :to="{ name: 'AddCategory' }">
             <button class="btn btn-outline-success" type="submit">Add Category</button>
+          </router-link>
+        </div>
+        <div>
+          <router-link :to="{ name: 'AddProduct' }">
+            <button class="btn btn-outline-success" type="submit">Add Product</button>
           </router-link>
         </div>
       </div>
