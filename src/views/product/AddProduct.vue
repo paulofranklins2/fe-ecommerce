@@ -30,8 +30,8 @@
           </div>
 
           <div class="form-group">
-            <label>ImageURL</label>
-            <input type="url" class="form-control" v-model="imageURL" required/>
+            <label>imageURL</label>
+            <input type="url" class="form-control" v-model="imageUrl" required/>
           </div>
 
           <div class="form-group">
@@ -54,7 +54,7 @@ export default {
       categoryId: null,
       name: null,
       description: null,
-      imageURL: null,
+      imageUrl: null,
       price: null
     };
   },
@@ -65,7 +65,7 @@ export default {
         categoryId: this.categoryId,
         name: this.name,
         description: this.description,
-        imageURL: this.imageURL,
+        imageUrl: this.imageUrl,
         price: this.price
       };
 
