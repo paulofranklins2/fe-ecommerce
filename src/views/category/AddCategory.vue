@@ -55,7 +55,6 @@ export default {
       try {
         await axios.post(this.baseURL + 'category', newCategory);
         console.log('Category Added Successfully');
-        // Optional: emit to parent or redirect
         this.$emit('fetchData'); // refresh categories in parent
         this.$router.push({ name: 'ListCategory' }); // redirect to list
       } catch (err) {
