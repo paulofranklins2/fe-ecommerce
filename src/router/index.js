@@ -5,11 +5,15 @@ import EditCategory from "@/views/category/EditCategory.vue";
 import AddProduct from "@/views/product/AddProduct.vue";
 import ListProduct from "@/views/product/ListProduct.vue";
 import EditProduct from "@/views/product/EditProduct.vue";
+import RegisterView from "@/views/auth/RegisterView.vue";
+import HomeView from "@/views/HomeView.vue";
+import LoginView from "@/views/auth/LoginView.vue";
 
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'Home',
+        component: HomeView
     },
     {
         path: '/admin/category/add',
@@ -45,6 +49,18 @@ const routes = [
         path: '/admin/product/:id',
         name: 'EditProduct',
         component: EditProduct
+    }
+    ,
+    {
+        path: '/auth/register',
+        name: 'RegisterView',
+        component: RegisterView
+    }
+    ,
+    {
+        path: '/auth/login',
+        name: 'LoginView',
+        component: LoginView
     }
 ]
 
