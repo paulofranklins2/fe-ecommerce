@@ -1,47 +1,16 @@
 <template>
   <nav>
-    <HeaderHome></HeaderHome>
-    <router-view
-        v-if="products && categories"
-        :baseURL="baseURL"
-        :products="products"
-        :categories="categories"
-        @fetchData="fetchData"
-    ></router-view>
+    <HeaderHome/>
+    <router-view/>
   </nav>
 </template>
 
 <script>
-import axios from 'axios';
 import HeaderHome from "@/components/HeaderHome.vue";
 
 export default {
-  components: {HeaderHome},
-  data() {
-    return {
-      baseURL: 'http://localhost:8080/',
-      products: null,
-      categories: null,
-    };
-  },
-
-  methods: {
-    async fetchData() {
-      await axios.get(this.baseURL + 'product')
-          .then(response => this.products = response.data)
-          .catch(error => console.log(error));
-
-      await axios.get(this.baseURL + 'category')
-          .then(response => this.categories = response.data)
-          .catch(error => console.log(error));
-    }
-  },
-
-  mounted() {
-    this.fetchData();
-  }
+  components: {HeaderHome}
 };
-
 </script>
 
 <style>
