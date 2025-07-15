@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12 text-center pt-3">
         <router-link :to="{ name: 'Home' }">
-<!--          <img id="logo" src="../assets/beth.png" />-->
+          <!--          <img id="logo" src="../assets/beth.png" />-->
         </router-link>
       </div>
     </div>
@@ -17,33 +17,33 @@
           <form @submit.prevent="register">
             <div class="form-group">
               <label>Email</label>
-              <input type="email" class="form-control" v-model="email" required />
+              <input type="email" class="form-control" v-model="email" required/>
             </div>
 
             <div class="form-row">
               <div class="col">
                 <div class="form-group">
                   <label>First Name</label>
-                  <input type="text" class="form-control" v-model="firstName" required />
+                  <input type="text" class="form-control" v-model="firstName" required/>
                 </div>
               </div>
 
               <div class="col">
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input type="text" class="form-control" v-model="lastName" required />
+                  <input type="text" class="form-control" v-model="lastName" required/>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
               <label>Password</label>
-              <input type="password" class="form-control" v-model="password" required />
+              <input type="password" class="form-control" v-model="password" required/>
             </div>
 
             <div class="form-group">
               <label>Confirm Password</label>
-              <input type="password" class="form-control" v-model="passwordConfirm" required />
+              <input type="password" class="form-control" v-model="passwordConfirm" required/>
             </div>
 
             <button type="submit" class="btn btn-primary mt-3">Create Account</button>

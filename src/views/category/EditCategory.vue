@@ -12,17 +12,17 @@
         <form @submit.prevent="editCategory">
           <div class="form-group">
             <label>Category Name</label>
-            <input type="text" class="form-control" v-model="name" required />
+            <input type="text" class="form-control" v-model="name" required/>
           </div>
 
           <div class="form-group">
             <label>Description</label>
-            <input type="text" class="form-control" v-model="description" required />
+            <input type="text" class="form-control" v-model="description" required/>
           </div>
 
           <div class="form-group">
             <label>Image URL</label>
-            <input type="url" class="form-control" v-model="imageUrl" required />
+            <input type="url" class="form-control" v-model="imageUrl" required/>
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -67,11 +67,11 @@ export default {
 
       try {
         await axios.put(`${this.baseURL}category/${this.id}`, updatedCategory, {
-          headers: { 'Content-Type': 'application/json' }
+          headers: {'Content-Type': 'application/json'}
         });
         console.log("Category updated successfully!");
         this.$emit('fetchData');
-        this.$router.push({ name: 'ListCategory' }); // optional redirect
+        this.$router.push({name: 'ListCategory'}); // optional redirect
       } catch (err) {
         console.error("Update failed:", err);
       }

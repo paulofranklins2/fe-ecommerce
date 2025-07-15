@@ -16,12 +16,12 @@
           <form @submit.prevent="signin">
             <div class="form-group">
               <label>Email</label>
-              <input type="email" class="form-control" v-model="email" required />
+              <input type="email" class="form-control" v-model="email" required/>
             </div>
 
             <div class="form-group">
               <label>Password</label>
-              <input type="password" class="form-control" v-model="password" required />
+              <input type="password" class="form-control" v-model="password" required/>
             </div>
 
             <small class="form-text text-muted">
@@ -36,7 +36,7 @@
             </button>
           </form>
 
-          <hr />
+          <hr/>
 
           <p class="text-center">
             <router-link :to="{ name: 'RegisterView' }" class="btn btn-dark w-100">
@@ -72,7 +72,7 @@ export default {
 
       try {
         const res = await axios.post(this.baseURL + "auth/login", user, {
-          headers: { "Content-Type": "application/json" }
+          headers: {"Content-Type": "application/json"}
         });
         localStorage.setItem("token", res.data.token);
         this.$router.replace("/");

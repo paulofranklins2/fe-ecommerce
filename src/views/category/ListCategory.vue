@@ -9,9 +9,10 @@
       </div>
     </div>
     <div class="row">
-      <div v-for="category in categories" :key="category.id" class="col-md-6 col-xl-4 col-12 pt-3 justify-content-center">
+      <div v-for="category in categories" :key="category.id"
+           class="col-md-6 col-xl-4 col-12 pt-3 justify-content-center">
         <div class="card" style="width: 18rem;">
-          <img :src="category.imageUrl" class="card-img-top" alt="Category image" />
+          <img :src="category.imageUrl" class="card-img-top" alt="Category image"/>
           <div class="card-body">
             <h5 class="card-title">{{ category.name }}</h5>
             <p class="card-text">{{ category.description }}</p>
