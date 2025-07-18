@@ -8,6 +8,7 @@ import EditProduct from "@/views/product/EditProduct.vue";
 import RegisterView from "@/views/auth/RegisterView.vue";
 import HomeView from "@/views/HomeView.vue";
 import LoginView from "@/views/auth/LoginView.vue";
+import OAuthCallback from "@/views/auth/OAuthCallback.vue";
 
 const routes = [
     {
@@ -61,6 +62,11 @@ const routes = [
         path: '/auth/login',
         name: 'LoginView',
         component: LoginView
+    },
+    {
+        path: "/oauth/callback",
+        name: "OAuthCallback",
+        component: OAuthCallback,
     }
 ]
 
