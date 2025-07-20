@@ -1,15 +1,17 @@
 <template>
-  <nav>
-    <HeaderHome/>
-    <router-view/>
-  </nav>
+  <div id="app">
+    <HeaderHome />
+    <main class="main-content">
+      <router-view />
+    </main>
+  </div>
 </template>
 
 <script>
 import HeaderHome from "@/components/HeaderHome.vue";
 
 export default {
-  components: {HeaderHome}
+  components: { HeaderHome },
 };
 </script>
 
@@ -20,6 +22,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
 
 nav {

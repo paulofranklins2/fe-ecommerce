@@ -13,7 +13,7 @@ export default {
         const token = res.data.token;
         localStorage.setItem("token", token);
         console.log("Token from backend:", token);
-        window.close();
+        this.$router.replace("/");
       } catch (error) {
         console.error("OAuth POST failed", error);
       }
