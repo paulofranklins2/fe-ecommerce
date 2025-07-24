@@ -55,7 +55,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      baseURL: "http://localhost:8080/",
+      baseURL: "/",
       email: null,
       password: null,
       loading: false,
@@ -65,7 +65,7 @@ export default {
     googleAuthUrl() {
       const params = new URLSearchParams({
         client_id: "701474785746-3r0e67th2cd6s2nb7n729o1gitgta3cr.apps.googleusercontent.com",
-        redirect_uri: "http://localhost:3000/oauth/callback",
+        redirect_uri: `${window.location.origin}/oauth/callback`,
         response_type: "code",
         scope: "openid email profile",
         access_type: "offline",

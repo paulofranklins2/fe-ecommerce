@@ -7,7 +7,7 @@ export default {
     const code = url.searchParams.get("code");
     if (code) {
       try {
-        const res = await axios.post("http://localhost:8080/auth/oauth2/callback/google", {
+        const res = await axios.post("/auth/oauth2/callback/google", {
           code: code,
         });
         const token = res.data.token;

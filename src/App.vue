@@ -16,7 +16,7 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      baseURL: "http://localhost:8080/",
+      baseURL: "/",
       products: null,
       categories: null
     }
