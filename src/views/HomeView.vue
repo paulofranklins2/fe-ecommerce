@@ -1,12 +1,27 @@
 <template>
   <div class="container-fluid mt-4">
     <div class="row">
+      <div class="col-md-3 mb-4">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action"
+             :class="{ active: selectedCategory === null }"
+             @click.prevent="filterByCategory(null)">
+            All
+          </a>
+          <a v-for="cat in categories" :key="cat.id" href="#"
+             class="list-group-item list-group-item-action"
+             :class="{ active: selectedCategory === cat.id }"
+             @click.prevent="filterByCategory(cat.id)">
+            {{ cat.name }}
+          </a>
+        </div>
+      </div>
       <div class="col-md-9">
         <div class="row">
           <div v-for="product in filteredProducts" :key="product.id"
                class="col-md-6 col-xl-4 col-12 pt-3 d-flex justify-content-around">
             <div class="card" style="width: 18rem;">
-              <img :src="product.imageURL" class="card-img-top" :alt="product.name">
+              <img :src="product.imageUrl" class="card-img-top" :alt="product.name">
               <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description }}</p>
@@ -38,61 +53,54 @@
 <script>
 import axios from 'axios';
 
-// function parseJwt(token) {
-//   try {
-//     const base64Url = token.split('.')[1];
-//     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-//     const jsonPayload = decodeURIComponent(
-//         atob(base64)
-//             .split('')
-//             .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-//             .join('')
-//     );
-//     return JSON.parse(jsonPayload);
-//   } catch (e) {
-//     return null;
-//   }
-// }
-
 export default {
+  name: 'HomeView',
+  props: ['baseURL', 'products', 'categories'],
+  data() {
+    return {
+      selectedCategory: null,
+      quantities: {}
+    };
+  },
+  computed: {
+    filteredProducts() {
+      if (!this.products) return [];
+      if (this.selectedCategory === null) {
+        return this.products;
+      }
+      return this.products.filter(p => p.categoryId === this.selectedCategory);
+    }
+  },
   methods: {
     filterByCategory(categoryId) {
       this.selectedCategory = categoryId;
     },
-
     addToCart(product, quantity) {
       if (quantity < 1) {
         return;
       }
-
-      var cartItem = {
+      const cartItem = {
         productId: product.id,
         quantity: quantity,
       };
-
       axios({
         method: 'post',
-        url: this.baseURL + "/cart/",
+        url: this.baseURL + 'cart/',
         data: JSON.stringify(cartItem),
         headers: {
           'Content-Type': 'application/json'
         }
       })
           .then(() => {
-            console.log("Cart Item Added Successfully")
+            console.log('Cart Item Added Successfully');
           })
           .catch(err => console.log(err));
     }
   },
-
-  // mounted() {
-  //   const token = localStorage.getItem('token');
-  //   if (token) {
-  //     const payload = parseJwt(token);
-  //     if (payload && payload.sub) {
-  //       this.userId = payload.sub;
-  //     }
-  //   }
-  // }
-}
+  mounted() {
+    if (!this.products || !this.categories) {
+      this.$emit('fetchData');
+    }
+  }
+};
 </script>

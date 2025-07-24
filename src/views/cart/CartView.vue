@@ -20,7 +20,7 @@
       <div class="col-2"></div>
       <div class="col-md-3 embed-responsive embed-responsive-16by9">
         <img
-            :src="cartItem.product.imageURL"
+            :src="cartItem.product.imageUrl"
             class="w-100 card-img-top embed-responsive-item"
         />
       </div>

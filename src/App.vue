@@ -23,12 +23,16 @@ export default {
   },
   components: {HeaderHome},
 
+  mounted() {
+    this.fetchData();
+  },
+
   methods: {
     async fetchData() {
       var token = localStorage.getItem("token");
       if (!token) {
-        if (this.$route.path !== "/login") {
-          this.$router.push("/login");
+        if (this.$route.path !== "/auth/login") {
+          this.$router.push("/auth/login");
           return;
         }
         return;
@@ -46,8 +50,8 @@ export default {
 
       if (isTokenExpired(token)) {
         localStorage.removeItem("token");
-        if (this.$route.path !== "/login") {
-          this.$router.push("/login");
+        if (this.$route.path !== "/auth/login") {
+          this.$router.push("/auth/login");
         }
         return;
       }
@@ -57,7 +61,7 @@ export default {
           .catch(err => console.log(err))
 
       await axios.get(this.baseURL + "category/")
-          .then(res => this.products = res.data)
+          .then(res => this.categories = res.data)
           .catch(err => console.log(err));
     }
   }
