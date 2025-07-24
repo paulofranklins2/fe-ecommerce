@@ -9,6 +9,7 @@ import RegisterView from "@/views/auth/RegisterView.vue";
 import HomeView from "@/views/HomeView.vue";
 import LoginView from "@/views/auth/LoginView.vue";
 import OAuthCallback from "@/views/auth/OAuthCallback.vue";
+import CartView from "@/views/cart/CartView.vue";
 
 const routes = [
     { path: '/', name: 'Home', component: HomeView },
@@ -20,7 +21,8 @@ const routes = [
     { path: '/admin/product/:id', name: 'EditProduct', component: EditProduct },
     { path: '/auth/register', name: 'RegisterView', component: RegisterView },
     { path: '/auth/login', name: 'LoginView', component: LoginView },
-    { path: '/oauth/callback', name: 'OAuthCallback', component: OAuthCallback }
+    { path: '/oauth/callback', name: 'OAuthCallback', component: OAuthCallback },
+    { path: '/cart', name: 'CartView', component: CartView }
 ];
 
 const router = createRouter({
